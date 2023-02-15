@@ -7,128 +7,14 @@
 }
 
 html {
+
 }
 
 body {
-    box-sizing: border-box;
+
 }
 
 .header {
     position: relative;
     height: 10vh;
-
-}
-
-.header__logo {
-    position: absolute;
-    width: 69px;
-    height: 14px;
-    left: 121px;
-    top: 49px;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 21px;
-
-    color: #EB5757;
-}
-
-.header__search-box {
-    position: absolute;
-    width: 297px;
-    height: 55px;
-    left: 1047px;
-    top: 32px;
-
-    background: #FFFFFF;
-    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-}
-
-.header__search-box--span {
-    /* position: absolute; */
-    width: 106px;
-    height: 18px;
-    left: 163px;
-    top: 51px;
-
-    font-family: 'Muli';
-    font-size: 14px;
-    line-height: 16px;
-
-    color: #333333;
-} 
-
-.header__search-box--input {
-    /* position: absolute; */
-    width: 74px;
-    height: 18px;
-    left: 1201px;
-    top: 51px;
-
-    font-family: 'Muli';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-    /* identical to box height */
-
-
-    color: #BDBDBD;
-}
-
-.header__search-box--icon {
-    /* position: absolute; */
-    left: 90.97%;
-    right: 7.84%;
-    top: 4.68%;
-    bottom: 93.76%;
-
-    color: #EB5757;
-}
-
-.content {
-    margin: 100px;
-    position: relative;
-    height: 10vh;
-}
-
-.content__title {
-
-}
-
-.content__title--text {
-    /* position: absolute; */
-    width: 199px;
-    height: 29px;
-    left: 91px;
-    top: 148px;
-
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-
-    color: #333333;
-}
-
-.content__title--number {
-    /* position: absolute; */
-    width: 61px;
-    height: 17px;
-    left: 1280px;
-    top: 154px;
-
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    /* identical to box height */
-
-
-    color: #4F4F4F;
 }
