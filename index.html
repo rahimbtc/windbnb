@@ -13,25 +13,58 @@
         <title>Windbnb | Reserve now</title>
     </head>
     <body>
-        <header class="header">
-            <div class="header__logo-box">
-                <img class="header__logo" src="./assets/img/logo.png" alt="Logo">
-            </div>
-            <div class="header__search-box">
-                <span class="header__search-box--span">Helsinki, Finland</span>
-                <input class="header__search-box--input" type="text" placeholder="Add guests">
-                <i class="fas fa-search header__search-box--icon"></i>
-            </div> 
-        </header>
         <div class="content">
-            <div class="content__title">
-                <span class="content__title--text">Stays in Finland</span>
-                <span class="content__title--number">12+ stays</span>
+            <header class="header">
+                <div class="header__logo-box">
+                    <img class="header__logo-box--logo" src="./assets/img/logo.png" alt="Logo">
+                </div>
+                <div class="header__search-box">
+                    <span class="header__search-box--span">Helsinki, Finland</span>
+                    <div class="header__search-box--separator-1"></div>
+                    <a class="header__search-box--input">Add guests</a>
+                    <div class="header__search-box--separator-2"></div>
+                    <i class="fas fa-search header__search-box--icon"></i>
+                </div> 
+            </header>
+
+            <div class="data">
+                <div class="data__header">
+                    <span class="data__title--text">Stays in Finland</span>
+                    <span class="data__title--number">12+ stays</span>
+                </div> 
+                <div class="data__body">
+                </div> 
             </div> 
-            <div class="content__items">
-            </div> 
+            
+            <footer class="footer">
+            </footer>   
         </div> 
-        <footer class="footer">
-        </footer>   
     </body>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+    <script>
+        $(function() {
+            var stays = [];
+            $.getJSON('http://localhost:8000/assets/js/stays.json', function(data) {
+                $.each(data, function(i, stay) {
+                    var stay_div = '<div class="data__body--stay"> ' +
+                                        '<div class="data__body--stay-img"> ' +
+                                            '<img class="stay-img" src="'+ stay.photo +'" alt="Stay" width="340" height="240">' +
+                                        '</div>' +
+                                        '<div class="data__body--stay-details">' +
+                                            '<div class="data__body--stay-type">'+ stay.type +'</div>' +
+                                            '<div class="data__body--stay-rating">' +
+                                                '<i class="fas fa-star"></i>' +
+                                                '<span>'+ stay.rating +'</span>' +
+                                            '</div>' +
+                                        '</div>' +
+                                        '<div class="data__body--stay-title">' +
+                                            '<span>'+ stay.title +'</span>' +
+                                        '</div>' +
+                                    '</div>';
+                    $(stay_div).appendTo(".data__body");
+                });
+            });
+        });
+    </script>
 </html>
