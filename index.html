@@ -13,13 +13,30 @@
         <title>Windbnb | Reserve now</title>
     </head>
     <body>
-        <div class="content">
+        <div class="nav">
+            <div class="nav__search-box">
+                <div class="nav__search-box--place-container">
+                    <span id="nav__search-box--location">Location</span>
+                    <a href="#" class="nav__search-box--place">Helsinki, Finland</a>
+                </div>
+                <div class="nav__search-box--guest-container">
+                    <span id="nav__search-box--number">Guests</span>
+                    <a href="#" class="nav__search-box--guest">Add guests</a>
+                </div>
+                <div class="btn nav__search-box--button">
+                    <i class="fas fa-search nav__search-box--icon"></i>
+                    <span class="nav__search-box--button-text">Search</span>
+                </div>
+            </div> 
+        </div>     
+        <div class="wrapper">
+
             <header class="header">
                 <div class="header__logo-box">
                     <img class="header__logo-box--logo" src="./assets/img/logo.png" alt="Logo">
                 </div>
                 <div class="header__search-box">
-                    <span class="header__search-box--span">Helsinki, Finland</span>
+                    <a href="#" class="header__search-box--span">Helsinki, Finland</a>
                     <div class="header__search-box--separator-1"></div>
                     <a class="header__search-box--input">Add guests</a>
                     <div class="header__search-box--separator-2"></div>
@@ -27,16 +44,17 @@
                 </div> 
             </header>
 
-            <div class="data">
-                <div class="data__header">
-                    <span class="data__title--text">Stays in Finland</span>
-                    <span class="data__title--number">12+ stays</span>
+            <div class="content">
+                <div class="content__header">
+                    <span class="content__title--text">Stays in Finland</span>
+                    <span class="content__title--number">12+ stays</span>
                 </div> 
-                <div class="data__body">
+                <div class="content__body">
                 </div> 
             </div> 
             
             <footer class="footer">
+                created by BTC - devChallenges.io
             </footer>   
         </div> 
     </body>
@@ -47,22 +65,41 @@
             var stays = [];
             $.getJSON('http://localhost:8000/assets/js/stays.json', function(data) {
                 $.each(data, function(i, stay) {
-                    var stay_div = '<div class="data__body--stay"> ' +
-                                        '<div class="data__body--stay-img"> ' +
-                                            '<img class="stay-img" src="'+ stay.photo +'" alt="Stay" width="340" height="240">' +
-                                        '</div>' +
-                                        '<div class="data__body--stay-details">' +
-                                            '<div class="data__body--stay-type">'+ stay.type +'</div>' +
-                                            '<div class="data__body--stay-rating">' +
-                                                '<i class="fas fa-star"></i>' +
-                                                '<span>'+ stay.rating +'</span>' +
+                    if (stay.superHost) {
+                        var stay_div = '<div class="content__body--stay"> ' +
+                                            '<div class="content__body--stay-img"> ' +
+                                                '<img class="stay-img" src="'+ stay.photo +'" alt="Stay" width="340" height="240">' +
                                             '</div>' +
-                                        '</div>' +
-                                        '<div class="data__body--stay-title">' +
-                                            '<span>'+ stay.title +'</span>' +
-                                        '</div>' +
-                                    '</div>';
-                    $(stay_div).appendTo(".data__body");
+                                            '<div class="content__body--stay-details">' +
+                                                '<div class="content__body--stay-type">'+ stay.type +'</div>' +
+                                                '<div class="content__body--stay-rating">' +
+                                                    '<i class="fas fa-star stay-star"></i>' +
+                                                    '<span>'+ stay.rating +'</span>' +
+                                                '</div>' +
+                                            '</div>' +
+                                            '<div class="content__body--stay-title">' +
+                                                '<span>'+ stay.title +'</span>' +
+                                            '</div>' +
+                                        '</div>';
+                        $(stay_div).appendTo(".content__body");
+                    } else {
+                        var stay_div = '<div class="content__body--stay"> ' +
+                                            '<div class="content__body--stay-img"> ' +
+                                                '<img class="stay-img" src="'+ stay.photo +'" alt="Stay" width="340" height="240">' +
+                                            '</div>' +
+                                            '<div class="content__body--stay-details">' +
+                                                '<div class="content__body--stay-type">'+ stay.type +'</div>' +
+                                                '<div class="content__body--stay-rating">' +
+                                                    '<i class="fas fa-star stay-star"></i>' +
+                                                    '<span>'+ stay.rating +'</span>' +
+                                                '</div>' +
+                                            '</div>' +
+                                            '<div class="content__body--stay-title">' +
+                                                '<span>'+ stay.title +'</span>' +
+                                            '</div>' +
+                                        '</div>';
+                        $(stay_div).appendTo(".content__body");
+                    }
                 });
             });
         });
